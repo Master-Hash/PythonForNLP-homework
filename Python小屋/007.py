@@ -1,5 +1,5 @@
 def main(lst: list[int]) -> list[int]:
-    if len(lst) in [0, 1]:
+    if len(lst) in (0, 1):
         return lst
     else:
         first = lst[0]
