@@ -3,5 +3,5 @@ def main(num: int) -> int:
     return sum(ds)
 
 
-if __name__ == "__main__":
-    print(main(12345))
+# if __name__ == "__main__":
+#     print(main(12345))
