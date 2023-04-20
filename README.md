@@ -13,6 +13,8 @@
 
 参见[PythonForNLP_讨论01、用董付国老师的“Python小屋刷题软件”有奖刷题(1).txt](https://github.com/Master-Hash/PythonForNLP-homework/blob/main/%E9%99%84%E4%BB%B6/PythonForNLP_%E8%AE%A8%E8%AE%BA01%E3%80%81%E7%94%A8%E8%91%A3%E4%BB%98%E5%9B%BD%E8%80%81%E5%B8%88%E7%9A%84%E2%80%9CPython%E5%B0%8F%E5%B1%8B%E5%88%B7%E9%A2%98%E8%BD%AF%E4%BB%B6%E2%80%9D%E6%9C%89%E5%A5%96%E5%88%B7%E9%A2%98(1).txt)
 
+本人已于获得赠书与加分，故不再更新。
+
 该软件不支持复制题目，所以本仓库也不给。（不过为方便 Copilot 和 doctest，我手写了部分题目大意（英文）和示例。）
 
 本地环境为 Python 3.11，测试平台为 Python 3.8，不保证交上去能直接得分。我使用的额外功能主要是类型标注。但禁止 import，必须使用 for 循环之类要求，是满足的。
