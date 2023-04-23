@@ -2,4 +2,7 @@
     "[plaintext]": {
         "files.encoding": "gb2312"
     }
+    "[csv]": {
+        "files.encoding": "gb2312"
+    }
 }
