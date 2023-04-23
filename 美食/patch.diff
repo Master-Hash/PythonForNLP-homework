@@ -1,0 +1,143 @@
+0a1,2
+> import csv
+> import random
+2d3
+< import tkinter.filedialog
+4c5,12
+< import random,csv
+---
+> from typing import List
+> 
+> # def getfile():
+> #     filename = tkinter.filedialog.askopenfilename()
+> #     if filename != "":
+> #         cur_filename.set(filename)
+> #     else:
+> #         cur_filename.set("您没有选择任何文件")
+6,12d13
+< def getfile():
+<     
+<     filename = tkinter.filedialog.askopenfilename()
+<     if filename != '':
+<          cur_filename.set(filename)
+<     else:
+<          cur_filename.set('您没有选择任何文件')
+15,19c16,20
+< root_window.title('随机美食')
+< root_window.geometry('500x300')
+< root_window.iconbitmap('美食.ico')
+< root_window.resizable(0,0)
+< root_window.config(bg='#FFE4E1')
+---
+> root_window.title("随机美食")
+> root_window.geometry("500x300")
+> # root_window.iconbitmap("美食.ico")
+> # root_window.resizable(0, 0)
+> root_window.config(bg="#FFE4E1")
+21,22c22,27
+< time_cbox['value'] = ('早饭','午饭','晚饭')
+< time_cbox.current(0)    
+---
+> time_cbox["value"] = ("早饭", "午饭", "晚饭")
+> time_cbox.current(0)
+> 
+> 
+> def random_select() -> None:
+>     namelist: List[str] = []
+24,27c29,39
+< def random_select():
+<     n = int(number_entry.get()) 
+<     namelist = []
+<     with open(cur_filename.get()) as fp:
+---
+>     if time_cbox.get() == ("早饭"):
+>         filename = "早饭.csv"
+> 
+>     elif time_cbox.get() == ("午饭"):
+>         filename = "午饭.csv"
+> 
+>     elif time_cbox.get() == ("晚饭"):
+>         filename = "晚饭.csv"
+>     else:
+>         raise ValueError("time_cbox的值不在范围内")
+>     with open(filename, encoding="gbk") as fp:
+31a44,49
+>     try:
+>         n = int(number_entry.get())
+>     except ValueError:
+>         # 有能力的话，请用 popup
+>         foodname.config(text="请输入数字")
+>         return
+34c52
+<         result_txt = '今天吃：'+food_name
+---
+>         foodname.config(text="今天吃：" + food_name)
+36,39c54,58
+<         food_name = random.sample(namelist, n)
+<         result_txt = '今天吃：'+food_name
+< if time_cbox['value'] == ('早饭'):
+<     filename="早饭.csv"
+---
+>         try:
+>             food_name = random.sample(namelist, n)
+>             foodname.config(text="今天吃：" + "、".join(food_name))
+>         except ValueError:
+>             foodname.config(text="美食不够了")
+41,42d59
+< elif time_cbox['value'] ==('午饭'):
+<     filename="午饭.csv"
+44,51c61,67
+< elif time_cbox['value'] ==('晚饭'):
+<     filename="晚饭.csv"
+< 
+<     foodname.config(text= result_txt)
+< 
+< 
+< 
+< info = tk.Label(root_window,text='终结选择困难的时候到了！',bg='#FFE4E1',fg='black',font=('黑体',20,'normal'))
+---
+> info = tk.Label(
+>     root_window,
+>     text="终结选择困难的时候到了！",
+>     bg="#FFE4E1",
+>     fg="black",
+>     font=("黑体", 20, "normal"),
+> )
+54,56c70,72
+< seleclt_file = tk.Button(root_window,text = '早饭/午饭/晚饭：',command = getfile)
+< 
+< number_txt = tk.Label(root_window,text='饭饭:',bg='#FFE4E1',fg='black',font=('黑体',20,'normal'))
+---
+> number_txt = tk.Label(
+>     root_window, text="饭饭:", bg="#FFE4E1", fg="black", font=("黑体", 20, "normal")
+> )
+58,68c74,85
+< select_number = tk.Button(root_window,text = '随机美食',command = random_select)
+< foodname = tk.Label(root_window,text='',bg='#FFE4E1',fg='black',font=('黑体',20,'normal'))
+< 
+< info.grid(row=0,columnspan=2,padx=10, pady=5)
+< seleclt_file.grid(row=1,column=0,padx=10, pady=5)
+< time_cbox.grid(row=1,column=1,padx=10, pady=5,sticky='w')
+< 
+< number_txt.grid(row=2,column=0,padx=10, pady=5)
+< number_entry.grid(row=2,column=1,padx=10, pady=5)
+< select_number.grid(row=3,column=0,padx=10, pady=5)
+< foodname.grid(row=4,columnspan=2,padx=10, pady=5)
+---
+> select_number = tk.Button(root_window, text="随机美食", command=random_select)
+> foodname = tk.Label(
+>     root_window, text="", bg="#FFE4E1", fg="black", font=("黑体", 20, "normal")
+> )
+> 
+> info.grid(row=0, columnspan=2, padx=10, pady=5)
+> time_cbox.grid(row=1, column=1, padx=10, pady=5, sticky="w")
+> 
+> number_txt.grid(row=2, column=0, padx=10, pady=5)
+> number_entry.grid(row=2, column=1, padx=10, pady=5)
+> select_number.grid(row=3, column=0, padx=10, pady=5)
+> foodname.grid(row=4, columnspan=2, padx=10, pady=5)
+70c87
+< root_window.mainloop()
+\ No newline at end of file
+---
+> root_window.mainloop()
